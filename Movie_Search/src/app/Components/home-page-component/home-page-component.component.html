@@ -6,24 +6,12 @@
     <title>Movie_Search_App</title>
 </head>
 <body>
-    <div class="wrapper">
+     <div class="wrapper">
         <form>
             <h1 class="h1Text">Enter the title of the movie</h1>
             <input class="inputField" type="text">
-            <button class="sendButton" class="sendButton">Send</button>
+            <button class="sendButton" type="button" (click)="navigatetoMoreInfo()" class="sendButton">Movie data</button>
         </form>
-    </div>
-    <div class="movieInfo">
-        <div class="metaData">
-            <div class="poster"></div>
-            <div class="fewData">
-                <h1>Title</h1>
-                <h2>Release Date</h2>
-                <h2>Producer</h2>
-                <h3>Rating</h3>
-            </div>
-        </div>
-        <button class="moreInfo">More Info</button>
     </div>
 </body>
 </html>
