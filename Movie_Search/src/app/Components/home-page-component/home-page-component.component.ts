@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HomePageComponentComponent implements OnInit
 {
+
   constructor(private router: Router){}
   
   
@@ -20,5 +21,7 @@ export class HomePageComponentComponent implements OnInit
   navigatetoMoreInfo(){
      this.router.navigate(['/moreInfo']);
   }
+
+
 
 }
