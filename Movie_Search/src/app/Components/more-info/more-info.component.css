@@ -1,4 +1,6 @@
-html, body {
+/* The whole component HTML and CSS need a rework */
+
+/* html{
     margin: 0;
     padding: 0;
     height: 100%;
@@ -16,6 +18,7 @@ body{
     margin: 0px;
     padding: 0;
     gap: 100px;
+    outline: 8px solid lightsalmon;
 }
 
 
@@ -113,4 +116,4 @@ body{
 
 .back:hover{
     background-color: white;
-}
+} */

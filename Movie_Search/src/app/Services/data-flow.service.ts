@@ -17,4 +17,7 @@ export class DataFlowService {
   getData(): any{
     return this.dataSubject.getValue();
   }
+
+  
+
 }
