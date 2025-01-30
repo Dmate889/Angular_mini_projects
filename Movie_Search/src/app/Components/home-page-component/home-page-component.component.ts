@@ -1,52 +1,49 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { DataFlowService } from '../../Services/data-flow.service';
 
 @Component({
   selector: 'app-home-page-component',
   standalone: false,
-  
+
   templateUrl: './home-page-component.component.html',
-  styleUrl: './home-page-component.component.css'
+  styleUrl: './home-page-component.component.css',
 })
-export class HomePageComponentComponent implements OnInit
-{
+export class HomePageComponentComponent implements OnInit {
+  isActive = true;
 
-  constructor(private router: Router, private http: HttpClient, private dataFlow: DataFlowService){}
-  
-  
-  ngOnInit(): void {
+  constructor(private http: HttpClient, private dataFlow: DataFlowService) {}
 
+  ngOnInit(): void {}
+
+  navigateBack() {
+    this.isActive = true;
   }
 
-  navigatetoMoreInfo(){
-     this.router.navigate(['/moreInfo']);
-  }
-
-  getInputData():  void{
-
-    const inputField = <HTMLInputElement>document.getElementById('inputField');
+  getInputData(): void {
+    const inputField = <HTMLInputElement>document.getElementById('inputFieldTitle');
     const inputValue = inputField?.value;
 
-    if(inputValue === '') {
+    if (inputValue === '') {
       alert('This field can not be empty');
       return;
+    } else {
+      this.isActive = !this.isActive;
+      this.http
+        .get(`http://www.omdbapi.com/?apikey=ccf2c664&s=${inputValue}`)
+        .subscribe({
+          next: (response: any) => {
+            if (response && response.Response === 'True') {
+              this.dataFlow.setData(response);
+            } else alert('Movie could not be found');
+          },
+          error: (err) => {
+            console.error(
+              'There was an error during the call of the API' + err
+            );
+            alert('There was an error during the call of the API!');
+          },
+        });
     }
-
-    this.http.get(`http://www.omdbapi.com/?apikey=ccf2c664&s=${inputValue}`).subscribe({
-      next: (response: any) => {
-        if(response && response.Response === 'True'){
-          this.dataFlow.setData(response);
-          this.router.navigate(['/moreInfo']);
-        }
-        else alert('Movie could not be found');
-      },
-      error: (err) => {
-        console.error('There was an error during the call of the API' +  err);
-        alert('There was an error during the call of the API!');
-      }
-    });
   }
-
 }
