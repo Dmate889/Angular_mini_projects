@@ -1,37 +1,48 @@
-   <body>
-
-    <div class="wrapper" *ngIf="isActive === true">
-        <form>
-            <h1 class="h1Text">Enter the title of the movie</h1>
-            <input class="inputField" type="text" id="inputFieldTitle" autocomplete="off">
-            <button class="sendButton" type="button" (click)="getInputData()" class="sendButton">Movie data</button>
-        </form>
+<body>
+  <div class="wrapper" *ngIf="isActive === true">
+    <form>
+      <h1 class="h1Text">Enter the title of the movie</h1>
+      <input
+        class="inputField"
+        type="text"
+        id="inputFieldTitle"
+        autocomplete="off"
+      />
+      <button
+        class="sendButton"
+        type="button"
+        (click)="getInputData()"
+        class="sendButton"
+      >
+        Movie data
+      </button>
+    </form>
+  </div>
+  <div class="movieInfo" *ngIf="!isActive">
+    <div class="metaData">
+      <h2>Title</h2>
+      <p><strong>Year:</strong></p>
     </div>
-    <div class="movieInfo" *ngIf="isActive === false">
-        <div class="metaData">
-            <h1 class="movietitle">Title</h1>
-            <div class="poster"></div>
-            <div class="fewData">
-                <div class="mainData">
-                    <h2>Release Date</h2>
-                    <h2>Prucer</h2>
-                    <h3>Type</h3>
-                </div>
-                <div class="secondData">
-                    <h2>Release Date</h2>
-                    <h2>Producer</h2>
-                    <h3>Rating</h3>
-                </div>
-                <div class="thirdData">
-                    <h2>Release Date</h2>
-                    <h2>Producer</h2>
-                    <h3>Rating</h3>
-                </div>
-                <div class="forthData">
-                    <h2>Release Date</h2>
-                    <h2>Producer</h2>
-                    <h3>Rating</h3>
-                </div>
-            </div>
-        </div> 
-        <button class="back" (click)="navigateBack()">Back</button>
+    <div class="metaData">
+        <h2>Title</h2>
+        <p><strong>Year:</strong></p>
+      </div>
+      <div class="metaData">
+        <h2>Title</h2>
+        <p><strong>Year:</strong></p>
+      </div>
+      <div class="metaData">
+        <h2>Title</h2>
+        <p><strong>Year:</strong></p>
+      </div>
+      <div class="metaData">
+        <h2>Title</h2>
+        <p><strong>Year:</strong></p>
+      </div>
+      <div class="metaData">
+        <h2>Title</h2>
+        <p><strong>Year:</strong></p>
+      </div>
+    </div>
+    <button class="back" *ngIf="!isActive" (click)="navigateBack()">Back</button>
+</body>
