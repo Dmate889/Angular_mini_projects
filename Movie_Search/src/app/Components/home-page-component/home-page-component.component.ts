@@ -11,6 +11,7 @@ import { DataFlowService } from '../../Services/data-flow.service';
 })
 export class HomePageComponentComponent implements OnInit {
   isActive = true;
+  metaData: {title: string, year: Date} [] = [];
 
   constructor(private http: HttpClient, private dataFlow: DataFlowService) {}
 
@@ -34,7 +35,11 @@ export class HomePageComponentComponent implements OnInit {
         .subscribe({
           next: (response: any) => {
             if (response && response.Response === 'True') {
-              this.dataFlow.setData(response);
+              this.metaData = response.Search.map((movie: any) => ({
+                title: movie.Title,
+                year: movie.Year  
+              }));
+              console.log(JSON.stringify(this.metaData, null, 2));
             } else alert('Movie could not be found');
           },
           error: (err) => {
