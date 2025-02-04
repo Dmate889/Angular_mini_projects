@@ -1,28 +1,28 @@
-# 🎬 Angular Mini Projects
+# Angular Mini Projects
 
 This repository is a collection of small **Angular** projects aimed at practicing the Angular framework and implementing various functionalities in unique applications.
 
 ---
 
-## 📌 Projects
+## Projects
 
-### 🎥 Movie Search App
+### Movie Search App
 
 The **Movie Search** is a simple frontend application that allows users to search for movies using the **OMDb API**.
 
-#### ✨ Key Features:
-- ✅ **Search for movies by title**  
-- ✅ **Display results with a poster, title, and release year**  
-- ✅ **API calls to the OMDb API to fetch data**  
+#### Key Features:
+- **Search for movies by title**  
+- **Display results with a poster, title, and release year**  
+- **API calls to the OMDb API to fetch data**  
 
-#### 🔜 Future Plans:
-- 🔹 **More specific search options** (e.g., by year, director, actor)  
-- 🔹 **Detailed movie information display**  
-- 🔹 **Favorites list feature**  
+#### Future Plans:
+- **More specific search options** (e.g., by year, director, actor)  
+- **Detailed movie information display**  
+- **Favorites list feature**  
 
 ---
 
-## 🚀 Installation and Running
+## Installation and Running
 
 1. **Clone the repository:**
    ```bash
