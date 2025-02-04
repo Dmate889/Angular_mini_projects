@@ -1,39 +1,55 @@
 <body>
   <div class="wrapper" *ngIf="isActive === true">
     <form (submit)="getInputData(); $event.preventDefault()">
-      <h1 class="h1Text">Enter the title of the movie</h1>
+      <h1 class="h1Text">Enter movie data then click Submit</h1>
       <input
         class="inputField"
         type="text"
         id="inputFieldTitle"
         autocomplete="off"
+        placeholder="Title"
       />
+      <input
+        *ngIf="!isButtonActive"
+        class="inputField"
+        type="text"
+        id="inputFieldYear"
+        autocomplete="off"
+        placeholder="Release year (optional)"
+        type="number"
+      />
+      <button
+        class="sendButton"
+        *ngIf="isButtonActive"
+        (click)="addYearButton($event)"
+      >
+        Add more option
+      </button>
       <button
         class="sendButton"
         type="button"
         (click)="getInputData()"
         class="sendButton"
       >
-        Movie data
+        Submit
       </button>
     </form>
   </div>
   <div class="movieInfo" *ngIf="!isActive">
     <h1 class="loading" *ngIf="metaData.length === 0">Loading movie data...</h1>
-    <div class="metaData" *ngFor="let data of metaData | slice:0:6">
+    <div class="metaData" *ngFor="let data of metaData | slice : 0 : 6">
       <ng-container *ngIf="data.poster !== 'N/A'; else noImageTemplate">
-        <img class="poster" [src]="data.poster">
+        <img class="poster" [src]="data.poster" />
       </ng-container>
-      <h2>{{data.title}}</h2>
-      <p><strong>{{data.year}}</strong></p>
+      <h2>{{ data.title }}</h2>
+      <p>
+        <strong>{{ data.year }}</strong>
+      </p>
     </div>
-    </div>
-    <button class="back" *ngIf="!isActive" (click)="navigateBack()">Back</button>
+  </div>
+  <button class="back" *ngIf="!isActive" (click)="navigateBack()">Back</button>
 </body>
-
-
 
 <ng-template #noImageTemplate>
   <h2>No image visible</h2>
 </ng-template>
-
