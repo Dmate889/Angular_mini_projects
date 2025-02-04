@@ -1,58 +1,57 @@
-Angular Projects Repository
+Angular Mini Projects
 
-Welcome to the Angular Projects Repository! This repository contains a collection of projects built using the Angular framework. Each project demonstrates different features, techniques, and use cases of Angular to help you learn, explore, or expand your development skills.
+This repository is a collection of small Angular projects designed to practice the Angular framework and implement various functionalities in unique applications.
 
-Projects Overview
+Projects
 
-Here are some of the key projects you will find in this repository:
-
-Expense Tracker
-
-A simple application to track your daily expenses.
-
-Features include adding, editing, and deleting expenses, along with visual summaries.
+This repository contains multiple small projects showcasing different features and API integrations.
 
 Movie Search App
 
-An application for searching and discovering movies.
+The Movie Search is a simple frontend application that allows users to search for movies using the OMDb API.
 
-Uses APIs to fetch and display movie details dynamically.
+Key Features:
 
-More projects will be added over time, showcasing various Angular functionalities and best practices.
+Search for movies by title
 
-Getting Started
+Display results with a poster, title, and release year
 
-To explore or run these projects, follow these steps:
+API calls to OMDb API to fetch data
 
-Clone the Repository:
+Future Plans:
 
-git clone https://github.com/your-username/angular-projects.git
-cd angular-projects
+More specific search options (e.g., by year, director, or actor)
 
-Install Dependencies:
-Each project has its own directory. Navigate to a project folder and run:
+Detailed movie information display
+
+Favorites list feature
+
+Installation and Running
+
+Clone the repository:
+
+git clone https://github.com/Dmate889/Angular_mini_projects.git
+
+Navigate to the project directory:
+
+cd Angular_mini_projects
+
+Install dependencies:
 
 npm install
 
-Run the Project:
-Start the development server for any project using:
+Start the development server:
 
 ng serve
 
-Then, open your browser and navigate to http://localhost:4200/.
+The application will be available at http://localhost:4200.
 
-Prerequisites
+Technologies Used
 
-Node.js: Make sure you have Node.js installed. Download Node.js
+Angular (vX.X.X)
 
-Angular CLI: Install Angular CLI globally if not already installed:
+TypeScript
 
-npm install -g @angular/cli
+SCSS / CSS
 
-Contributions
-
-Contributions are welcome! If you'd like to improve or add a project, feel free to fork this repository, make your changes, and submit a pull request. Please ensure your code adheres to Angular's best practices.
-
-License
-
-This repository is licensed under the MIT License. Feel free to use the code for your own projects.
+OMDb API (https://www.omdbapi.com/)
