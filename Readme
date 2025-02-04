@@ -1,50 +1,58 @@
-# Angular Mini Projects
+Angular Mini Projects
 
-This repository is a collection of small **Angular** projects aimed at practicing the Angular framework and implementing various functionalities in unique applications.
+This repository contains a collection of small projects developed using Angular. Each project demonstrates different aspects of Angular development, including component-based architecture, API integration, and user interface design.
 
----
+Projects Overview
 
-## Projects
+1. Movie Search App
 
-### Movie Search App
+The Movie Search App is a simple Angular frontend application that allows users to search for movies using the OMDb API. It retrieves and displays movie details, including:
 
-The **Movie Search** is a simple frontend application that allows users to search for movies using the **OMDb API**.
+Title
 
-#### Key Features:
-- **Search for movies by title**  
-- **Display results with a poster, title, and release year**  
-- **API calls to the OMDb API to fetch data**  
+Release Year
 
-#### Future Plans:
-- **More specific search options** (e.g., by year, director, actor)  
-- **Detailed movie information display**  
-- **Favorites list feature**  
+Poster
 
----
+Features
 
-## Installation and Running
+Search Functionality: Users can input a movie title and fetch relevant details.
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Dmate889/Angular_mini_projects.git
+API Integration: Uses the OMDb API to retrieve movie data dynamically.
 
-2. Navigate to the project directory:
- ```bash
-   cd Angular_mini_projects
+Responsive UI: The interface is designed to work seamlessly across different devices.
 
-3. Install dependencies:
- ```bash
-   npm install
+Future Enhancements
 
-4. Start the development server:
- ```bash
-   ng serve --open
+Advanced Search Filters: Plan to add options to filter results by genre, director, and rating.
 
-The application will be available at: http://localhost:4200
+Detailed Movie Information: Expand results to include plot summaries, actors, and reviews.
 
-#### Technologies:
-Angular (v19.1.3)
-TypeScript
-SCSS / CSS
-OMDb API (omdbapi.com)
+User Authentication: Enable users to save their favorite movies.
 
+Getting Started
+
+Prerequisites
+
+Ensure you have the following installed:
+
+Node.js and npm
+
+Angular CLI
+
+Installation
+
+Clone the repository:
+
+git clone https://github.com/Dmate889/Angular_mini_projects.git
+cd Angular_mini_projects
+
+Install dependencies:
+
+npm install
+
+Run the application:
+
+ng serve
+
+Open http://localhost:4200/ in your browser to use the app.
