@@ -95,7 +95,7 @@ form{
 .metaData{
     background-color: white;
     border-radius: 30px;;
-    border: solid;
+    /* border: solid; */
     height: 35vh;
     width: 20vw;
     display: flex;
@@ -104,6 +104,22 @@ form{
     align-items: center;
     padding: 30px;
     gap: 50px;
+    justify-content: center;
+    box-shadow: 2px 2px 10px black;
+}
+
+.poster{
+    margin-top: 50px;
+    height: 15vh;
+    width: 8vw;
+    box-shadow: 2px 2px 40px black;
+    transition: height 1s, width 1s;
+    border-radius: 20px;
+}
+
+.poster:hover{
+    height: 20vh;
+    width: 10vw;
 }
 
 .back{
@@ -124,4 +140,11 @@ form{
 
 .back:hover{
     background-color: white;
+}
+
+.loading{
+    font-family: monospace;
+    justify-self: center;
+    align-self: center;
+    font-size: 50px;
 }
