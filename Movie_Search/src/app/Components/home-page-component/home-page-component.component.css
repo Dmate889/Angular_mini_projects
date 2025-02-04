@@ -95,7 +95,6 @@ form{
 .metaData{
     background-color: white;
     border-radius: 30px;;
-    /* border: solid; */
     height: 35vh;
     width: 20vw;
     display: flex;
@@ -111,7 +110,7 @@ form{
 .poster{
     margin-top: 50px;
     height: 15vh;
-    width: 8vw;
+    width: 6vw;
     box-shadow: 2px 2px 40px black;
     transition: height 1s, width 1s;
     border-radius: 20px;
@@ -147,4 +146,20 @@ form{
     justify-self: center;
     align-self: center;
     font-size: 50px;
+}
+
+@media screen and (min-width: 2560px) and (min-aspect-ratio: 21/9){
+    .poster{
+        height: 20vh;
+        width: 5vw;        
+    }
+
+    .poster:hover{
+        height: 21vh;
+        width: 10vw;
+    }
+
+    .metaData{
+        gap: 30px;
+    }
 }
