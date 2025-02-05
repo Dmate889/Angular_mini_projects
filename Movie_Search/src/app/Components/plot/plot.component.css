@@ -32,7 +32,6 @@ body{
 
 .plot{
     padding: 50px;
-    
 }
 
 button{
@@ -48,4 +47,8 @@ button{
     align-self: center;
     justify-self: center;
     margin-bottom: 30px;
+}
+
+button:hover{
+    background-color: white;
 }
