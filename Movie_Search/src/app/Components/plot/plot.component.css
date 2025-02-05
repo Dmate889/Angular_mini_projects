@@ -1,0 +1,51 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: lightsalmon;
+    outline: 8px solid lightsalmon;
+    height: 100vh;
+    gap: 30px;
+    
+}
+
+.wrapper{
+    background-color: white;
+    height: 90vh;
+    width: 70vw;
+    margin-top: 30px;
+    border-radius: 40px;
+    box-shadow: 2px 2px 30px black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.metaData{
+    padding: 10px;
+}
+
+.plot{
+    padding: 50px;
+    
+}
+
+button{
+    height: 50px;
+    width: 300px;
+    border-radius: 20px;
+    font-family: monospace;
+    font-size: x-large;
+    font-weight: 700;
+    background-color: rgb(211, 253, 148);
+    transition: background-color 0.5s;
+    cursor: pointer;
+    align-self: center;
+    justify-self: center;
+    margin-bottom: 30px;
+}

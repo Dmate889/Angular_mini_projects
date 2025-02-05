@@ -95,6 +95,7 @@ form{
     box-shadow: 2px 2px 10px black;
     padding: 40px;
     gap: 20px;
+    position: relative;
 }
 
 .metaData{
@@ -119,6 +120,7 @@ form{
     box-shadow: 2px 2px 40px black;
     transition: height 1s, width 1s;
     border-radius: 20px;
+    cursor: pointer;
 }
 
 .poster:hover{
@@ -151,6 +153,15 @@ form{
     justify-self: center;
     align-self: center;
     font-size: 50px;
+}
+
+.plot{
+    border: solid;
+    width: 40vw;
+    height: 40vh;
+    position: absolute;
+    top: 0px;
+    
 }
 
 @media screen and (min-width: 2560px) and (min-aspect-ratio: 21/9){
