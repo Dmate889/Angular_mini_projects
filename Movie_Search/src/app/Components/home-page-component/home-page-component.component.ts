@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { DataFlowService } from '../../Services/data-flow.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home-page-component',
@@ -12,15 +13,20 @@ import { DataFlowService } from '../../Services/data-flow.service';
 export class HomePageComponentComponent implements OnInit {
   isActive = true;
   isButtonActive = true;
-  metaData: {title: string, year: Date, poster: string} [] = [];
+  metaData: {
+    title: string,
+    year: Date,
+    poster: string,
+    imdb: string
+    } [] = [];
 
-  constructor(private http: HttpClient, private dataFlow: DataFlowService) {}
-
+  constructor(private http: HttpClient, private dataFlow: DataFlowService, private router: Router) {}
+  
   ngOnInit(): void {}
-
-  navigateBack() {
-    this.isActive = true;
-  }
+  
+    navigateBack() {
+      this.isActive = true;
+    }
 
   addYearButton(event: any){
     event.preventDefault();
@@ -51,7 +57,8 @@ export class HomePageComponentComponent implements OnInit {
               this.metaData = response.Search.map((movie: any) => ({
                 title: movie.Title,
                 year: movie.Year,
-                poster: movie.Poster  
+                poster: movie.Poster,
+                imDb: movie.imdbID 
               }));
             }
            else alert('Movie could not be found');
@@ -64,5 +71,24 @@ export class HomePageComponentComponent implements OnInit {
           },
         });
     }
+  }
+
+  getMovieDetails(title: string): void {
+    const apiUrl = `http://www.omdbapi.com/?apikey=ccf2c664&t=${title}`;
+  
+    this.http.get(apiUrl).subscribe({
+      next: (response: any) => {
+        if (response && response.Response === 'True') {
+          this.dataFlow.setData(response); 
+          this.router.navigate(['/plot']); 
+        } else {
+          alert('Could not retrieve movie details.');
+        }
+      },
+      error: (err) => {
+        console.error('Error fetching movie details', err);
+        alert('Error fetching movie details.');
+      },
+    });
   }
 }

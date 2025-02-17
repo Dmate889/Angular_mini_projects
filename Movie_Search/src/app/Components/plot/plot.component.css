@@ -23,15 +23,19 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
 }
 
 .metaData{
     padding: 10px;
+    font-family: monospace;
+    box-shadow:2px 2px 5px black ;
 }
 
 .plot{
-    padding: 50px;
+    padding: 20px;
+    box-shadow: 2px 2px 5px black;
+    
 }
 
 button{
@@ -51,4 +55,14 @@ button{
 
 button:hover{
     background-color: white;
+}
+
+img{
+   height: 20vh;
+   transition: height 1s;
+   cursor: pointer;
+}
+
+img:hover{
+    height: 30vh;
 }

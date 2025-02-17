@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { DataFlowService } from '../../Services/data-flow.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-plot',
@@ -7,6 +9,17 @@ import { Component } from '@angular/core';
   templateUrl: './plot.component.html',
   styleUrl: './plot.component.css'
 })
-export class PlotComponent {
+export class PlotComponent implements OnInit{
 
+  movie: any
+
+  constructor(private dataFlow: DataFlowService, private router: Router){}
+
+  ngOnInit(){
+    this.movie = this.dataFlow.getData();
+  }
+
+  navigateBack(){
+    this.router.navigate(['/homePage'])
+  }
 }
