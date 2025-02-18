@@ -28,11 +28,6 @@ export class HomePageComponentComponent implements OnInit {
       this.isActive = true;
     }
 
-  addYearButton(event: any){
-    event.preventDefault();
-    this.isButtonActive = !this.isButtonActive;
-  }
-
   getInputData(): void {
     const inputFieldTitle = <HTMLInputElement>document.getElementById('inputFieldTitle');
     const inputFieldYear = <HTMLInputElement>document.getElementById('inputFieldYear');

@@ -30,6 +30,7 @@ body{
     padding: 10px;
     font-family: monospace;
     box-shadow:2px 2px 5px black ;
+    border-radius: 40px;
 }
 
 .plot{

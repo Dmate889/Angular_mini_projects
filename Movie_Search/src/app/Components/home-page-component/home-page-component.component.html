@@ -10,7 +10,6 @@
         placeholder="Title"
       />
       <input
-        *ngIf="!isButtonActive"
         class="inputField"
         type="text"
         id="inputFieldYear"
@@ -18,13 +17,6 @@
         placeholder="Release year (optional)"
         type="number"
       />
-      <button
-        class="sendButton"
-        *ngIf="isButtonActive"
-        (click)="addYearButton($event)"
-      >
-        Add year
-      </button>
       <button
         class="sendButton"
         type="button"
