@@ -27,7 +27,7 @@ label{
     font-family: monospace;
     font-weight: bold;
     position: absolute;
-    top: 80px;
+    top: 60px;
     
 }
 
@@ -48,9 +48,17 @@ label{
 
 }
 
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
 input{
-    height: 4vh;
-    width: 20vw;
+    height: 5vh;
+    width: 30vw;
     border-radius: 30px;
     background-color: whitesmoke;
     font-family: monospace;

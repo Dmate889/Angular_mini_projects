@@ -40,7 +40,6 @@ function selectIncome(callback){
             return callback(err, null)  
         } 
         else {
-            
             return callback(null,rows);
         } 
     });
