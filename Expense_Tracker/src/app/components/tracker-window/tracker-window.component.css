@@ -1,0 +1,88 @@
+html, body{
+    background-color: beige;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.trackerWindow{
+    border: solid;
+    border-radius: 60px;
+    height: 80vh;
+    width: 50vw;
+    background-color:antiquewhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    position: relative;
+    gap: 50px;
+
+}
+
+label{
+    font-size: xx-large;
+    font-family: monospace;
+    font-weight: bold;
+    position: absolute;
+    top: 80px;
+    
+}
+
+.moneyContainer{
+    border: solid;
+    height: 20vh;
+    width: 30vw;
+    border-radius: 40px;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 100px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: whitesmoke;
+
+
+}
+
+input{
+    height: 4vh;
+    width: 20vw;
+    border-radius: 30px;
+    background-color: whitesmoke;
+    font-family: monospace;
+    font-size: 30px;
+    font-weight: bold;
+    transition: background-color 0.5s;
+}
+
+input:hover{
+    background-color: beige;
+}
+
+button{
+    height: 5vh;
+    width: 10vw;
+    border-radius: 40px;
+    background-color: bisque;
+    font-family: monospace;
+    font-size: large;
+    font-weight: bold;
+    transition: background-color 0.5s;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: white;
+}
+
+.newMonth{
+    background-color: rgb(202, 161, 161);
+}
+
+
+
+
