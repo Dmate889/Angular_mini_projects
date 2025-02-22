@@ -25,7 +25,23 @@ function updateIncome(income){
 
 }
 
+function selectIncome(callback){
+    const query = "SELECT income FROM mainIncome";
+
+    db.all(query, [], (err,rows) => {
+        if(err){
+            console.error(`Unable to run ${query}`, err)
+            return callback(err, null)  
+        } 
+        else {
+            console.log(`${query} ran successfully`);
+            return callback(null,rows);
+        } 
+    });
+}
+
 
 module.exports = {
-    updateIncome
+    updateIncome,
+    selectIncome
 }
