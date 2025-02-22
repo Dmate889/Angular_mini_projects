@@ -15,12 +15,18 @@ db.run(
     "CREATE TABLE IF NOT EXISTS mainIncome (id INTEGER PRIMARY KEY, income INTEGER)"
 );
 
-function updateIncome(income){
+function updateIncome(income, callback){
     const query = "UPDATE mainIncome SET income = income - ?";
 
-    db.run(query, [income], err => {
-        if(err) console.log(`˙There was a problem running the following queryÉ ${query}`);
-        else console.log("Income has been updated")
+    db.run(query, [income], (err) => {
+        if(err){
+            console.error(`˙There was a problem running the following query ${query}`);  
+            return callback(err);
+        } 
+        else {
+            console.log("Income has been updated")
+            callback(null);
+        }
     })
 
 }
