@@ -40,7 +40,7 @@ function selectIncome(callback){
             return callback(err, null)  
         } 
         else {
-            console.log(`${query} ran successfully`);
+            
             return callback(null,rows);
         } 
     });

@@ -18,13 +18,13 @@ app.post("/setincome", (req, res) =>{
     db.updateIncome(income, (err) => {
         if(err){
             console.log("Error occurred when calling POST setincome")
-            return res.status(500).json({error: 'Error occurred when calling POST setincome'})
+            return res.status(500).json({error: 'Error occurred when calling POST setincome'});
         }
         return res.status(200).json({message: 'Income has been updated'});
     })
 });
 
-app.get("/income", (req, res) => {
+app.get("/getincome", (req, res) => {
   db.selectIncome((err, rows) => {
     if (err)
       return res
