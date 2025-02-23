@@ -7,11 +7,16 @@
 </head>
 <body>
     <div class="trackerWindow">
-        <label>All current income</label>
+        <div class="minusPlus" *ngIf="isActive">
+            <label class="selectLabel">Select the operation</label>
+            <button (click)="add()" class="add">Add</button>
+            <button (click)="sub()" class="sub">Substract</button>
+        </div>
+        <label class="incomeLabel">All current income</label>
         <div class="moneyContainer" id="moneyContainer">{{moneyContainer}}</div>
         <form>
             <input type="number" id="moneyInput">
-            <button class="submitButton" type="submit" (click)="setIncome($event)">Submit</button>
+            <button class="submitButton" type="submit" (click)="setIncome($event, op)">Submit</button>
             <button class="submitButton">Monthly spendings</button>
             <button class="submitButton">Savings</button>
             <button class="newMonth">New Month</button>

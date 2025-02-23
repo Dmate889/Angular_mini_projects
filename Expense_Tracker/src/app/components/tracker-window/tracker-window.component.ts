@@ -10,28 +10,58 @@ import { Component, OnInit } from '@angular/core';
 export class TrackerWindowComponent implements OnInit {
 
    moneyContainer: any;
+   isActive: boolean = false;
+   op: string = "";
 
   constructor(private http: HttpClient){}
 
   ngOnInit(): void {
+    const apiUrl = 'http://localhost:3000/getincome';
 
-
+    this.http.get<any>(apiUrl).subscribe(
+      (response) => {
+        if (response && response.rows && response.rows.length > 0) {
+          this.moneyContainer = response.rows[0].income;
+        } else {
+          console.warn("Nincs megfelelő adat a válaszban.");
+        }
+      },
+      (error) => {
+        console.error(`Hiba történt az API hívás során: ${apiUrl}`, error);
+      }
+    );
   }
 
-   setIncome(e: any){
+
+   setIncome(e: any, op: string){
 
     e.preventDefault();
+    this.isActive = true;
 
-    const apiUrl = 'http://localhost:3000/setincome';
+    const apiUrl = `http://localhost:3000/${op}`
 
+    let moneyInput = <HTMLInputElement>document.getElementById("moneyInput")
+    if(moneyInput){
+      const incomeValue = moneyInput.value.trim();
+      const body = {income: Number(incomeValue)};
+      this.http.post(apiUrl, body).subscribe(
+        (response) => console.log("Successful POST request"),
+        (error) => console.log("Unable to send POST request")
+      )
+    } 
+  }
 
-    const moneyInput = <HTMLInputElement>document.getElementById("moneyInput")
-    const body = moneyInput.value;
-    
-
-    this.http.post(apiUrl, body);
-    
+  add() {
+    this.isActive = false;
+    this.op = "setincomePlus"
+    this.setIncome(new Event('click'), this.op);
+    window.location.reload();
   }
   
-
+  sub() {
+    this.isActive = false;
+    this.op = "setincomeMinus"
+    this.setIncome(new Event('click'), this.op);
+    window.location.reload();
+  }
 }
