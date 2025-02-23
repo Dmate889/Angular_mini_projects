@@ -23,11 +23,11 @@ export class TrackerWindowComponent implements OnInit {
         if (response && response.rows && response.rows.length > 0) {
           this.moneyContainer = response.rows[0].income;
         } else {
-          console.warn("Nincs megfelelő adat a válaszban.");
+          console.warn("No data in response");
         }
       },
       (error) => {
-        console.error(`Hiba történt az API hívás során: ${apiUrl}`, error);
+        console.error(`Error occurred when calling endpoint: ${apiUrl}`, error);
       }
     );
   }

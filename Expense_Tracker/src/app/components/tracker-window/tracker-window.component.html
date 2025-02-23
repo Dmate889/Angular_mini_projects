@@ -13,7 +13,7 @@
             <button (click)="sub()" class="sub">Subtract</button>
         </div>
         <label class="incomeLabel">All current income</label>
-        <div class="moneyContainer" id="moneyContainer">{{moneyContainer}}</div>
+        <div class="moneyContainer" id="moneyContainer">{{moneyContainer | number:'1.0'}} HUF</div>
         <form>
             <input type="number" id="moneyInput">
             <button class="submitButton" type="submit" (click)="setIncome($event, op)">Submit</button>
