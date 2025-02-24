@@ -15,8 +15,37 @@ db.run(
     "CREATE TABLE IF NOT EXISTS mainIncome (id INTEGER PRIMARY KEY, income INTEGER)"
 );
 
-function updateIncome(income, callback){
+db.run(
+    "CREATE TABLE IF NOT EXISTS categories (id INTEGER PRIMARY KEY, lifeEssentials INTEGER, shoppingFood INTEGER, travel INTEGER, entertainment INTEGER, shoppingOhter INTEGER, Gym INTEGER)"
+);
+
+function setCategories(category, amount){
+    const query = `UPDATE categories SET ${category} = ${category} + ?`;
+
+    db.run(query[amount], (err) => {
+        if(err) console.error(`Error running ${query}`);
+        else console.log(`${amount} has been added for ${category}`);
+    })
+}
+
+function updateIncomeMinus(income, callback){
     const query = "UPDATE mainIncome SET income = income - ?";
+
+    db.run(query, [income], (err) => {
+        if(err){
+            console.error(`˙There was a problem running the following query ${query}`);  
+            return callback(err);
+        } 
+        else {
+            console.log("Income has been updated")
+            callback(null);
+        }
+    })
+
+}
+
+function updateIncomePlus(income, callback){
+    const query = "UPDATE mainIncome SET income = income + ?";
 
     db.run(query, [income], (err) => {
         if(err){
@@ -47,6 +76,8 @@ function selectIncome(callback){
 
 
 module.exports = {
-    updateIncome,
-    selectIncome
+    updateIncomeMinus,
+    updateIncomePlus,
+    selectIncome,
+    setCategories
 }

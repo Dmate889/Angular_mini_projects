@@ -11,7 +11,9 @@ export class TrackerWindowComponent implements OnInit {
 
    moneyContainer: any;
    isActive: boolean = false;
+   isActiveCat: boolean = false;
    op: string = "";
+   currentMonth = Date.now();
 
   constructor(private http: HttpClient){}
 
@@ -60,8 +62,10 @@ export class TrackerWindowComponent implements OnInit {
   
   sub() {
     this.isActive = false;
+    this.isActiveCat = true;
     this.op = "setincomeMinus"
     this.setIncome(new Event('click'), this.op);
-    window.location.reload();
   }
+
+
 }

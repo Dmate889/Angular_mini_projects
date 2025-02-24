@@ -9,10 +9,20 @@
     <div class="trackerWindow">
         <div class="minusPlus" *ngIf="isActive">
             <label class="selectLabel">Select the operation</label>
+            <button (click)="sub()" class="sub">Spend</button>
             <button (click)="add()" class="add">Add</button>
-            <button (click)="sub()" class="sub">Subtract</button>
+        </div>
+        <div class="categories" *ngIf="isActiveCat">
+            <label class="selectLabel">Choose a category</label>
+            <button class="sub">Shopping(Food)</button>
+            <button class="sub">Life essentials</button>
+            <button class="sub">Travel</button>
+            <button class="sub">Entertainment</button>
+            <button class="sub">Shopping(Other)</button>
+            <button class="sub">Gym</button>
         </div>
         <label class="incomeLabel">All current income</label>
+        <label class="monthLabel">{{currentMonth | date: 'yyyy,MMMM'}}</label>
         <div class="moneyContainer" id="moneyContainer">{{moneyContainer | number:'1.0'}} HUF</div>
         <form>
             <input type="number" id="moneyInput">

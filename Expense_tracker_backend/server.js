@@ -13,15 +13,26 @@ app.listen(PORT, () => {
 });
 
 
-app.post("/setincome", (req, res) =>{
+app.post("/setincomePlus", (req, res) =>{
     const {income} = req.body;
-    db.updateIncome(income, (err) => {
+    db.updateIncomePlus(income, (err) => {
         if(err){
             console.log("Error occurred when calling POST setincome")
-            return res.status(500).json({error: 'Error occurred when calling POST setincome'});
+            return res.status(500).json({error: 'Error occurred when calling POST setincomePlus'});
         }
         return res.status(200).json({message: 'Income has been updated'});
     })
+});
+
+app.post("/setincomeMinus", (req, res) =>{
+  const {income} = req.body;
+  db.updateIncomeMinus(income, (err) => {
+      if(err){
+          console.log("Error occurred when calling POST setincome")
+          return res.status(500).json({error: 'Error occurred when calling POST setincomeMinus'});
+      }
+      return res.status(200).json({message: 'Income has been updated'});
+  })
 });
 
 app.get("/getincome", (req, res) => {
@@ -33,6 +44,17 @@ app.get("/getincome", (req, res) => {
           error: "Database error when calling GET income",
           details: err.message,
         });
-    else return res.status(200).json({ income: rows });
+    else return res.status(200).json({ rows });
   });
 });
+
+app.post("/setCategory", (req,res) => {
+  const {category,amount} = req.body;
+  db.setCategories(category,amount, (err)=> {
+    if(err){
+      console.log(`Error occurred when calling POST /setCategory`)
+      res.status(500).json({message: "Error occurred when calling POST /setCategory"})
+    }
+    else res.status(200).json({message: `${category} has been increased with ${amount}`});
+  })
+})
