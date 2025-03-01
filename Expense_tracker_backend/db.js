@@ -16,13 +16,14 @@ db.run(
 );
 
 db.run(
-    "CREATE TABLE IF NOT EXISTS categories (id INTEGER PRIMARY KEY, lifeEssentials INTEGER, shoppingFood INTEGER, travel INTEGER, entertainment INTEGER, shoppingOhter INTEGER, Gym INTEGER)"
+    "CREATE TABLE IF NOT EXISTS categories (id INTEGER PRIMARY KEY, lifeessentials INTEGER, shoppingfood INTEGER, travel INTEGER, entertainment INTEGER, shoppingother INTEGER, gym INTEGER)"
 );
+
 
 function setCategories(category, amount){
     const query = `UPDATE categories SET ${category} = ${category} + ?`;
 
-    db.run(query[amount], (err) => {
+    db.run(query, [amount], (err) => {
         if(err) console.error(`Error running ${query}`);
         else console.log(`${amount} has been added for ${category}`);
     })
@@ -33,7 +34,7 @@ function updateIncomeMinus(income, callback){
 
     db.run(query, [income], (err) => {
         if(err){
-            console.error(`˙There was a problem running the following query ${query}`);  
+            console.error(`There was a problem running the following query ${query}`);  
             return callback(err);
         } 
         else {

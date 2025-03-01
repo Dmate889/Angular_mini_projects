@@ -35,7 +35,7 @@ export class TrackerWindowComponent implements OnInit {
   }
 
 
-   setIncome(e: any, op: string){
+  setIncome(e: any, op: string){
 
     e.preventDefault();
     this.isActive = true;
@@ -66,6 +66,28 @@ export class TrackerWindowComponent implements OnInit {
     this.op = "setincomeMinus"
     this.setIncome(new Event('click'), this.op);
   }
+ 
+  setCategory(e: any){  
+    
+    e.preventDefault();
 
 
+    let categoryText: string = (e.target as HTMLButtonElement).innerText;
+    categoryText = categoryText.replace(/[\s()]/g, "").toLowerCase();
+    let moneyInput = <HTMLInputElement>document.getElementById("moneyInput");
+
+    if(moneyInput){
+      const incomeValue = moneyInput.value.trim();
+      const apiUrl = 'http://localhost:3000/setCategory';
+  
+      const body = {category: String(categoryText), amount: Number(incomeValue)};
+      this.http.post(apiUrl,body).subscribe(
+        (response) => console.log("Successful POST request"),
+        (error) => console.log("Unable to send request")
+      );
+    } 
+
+
+    window.location.reload();
+  }
 }
