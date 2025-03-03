@@ -27,7 +27,7 @@
         <form>
             <input type="number" id="moneyInput">
             <button class="submitButton" type="submit" (click)="setIncome($event, op)">Submit</button>
-            <button class="submitButton">Monthly spendings</button>
+            <button class="submitButton" (click)="navigateToMonthly($event)">Monthly spendings</button>
             <button class="submitButton">Savings</button>
             <button class="newMonth">New Month</button>
         </form>

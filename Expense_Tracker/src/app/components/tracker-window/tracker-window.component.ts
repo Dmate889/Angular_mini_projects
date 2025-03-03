@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tracker-window',
@@ -15,12 +16,11 @@ export class TrackerWindowComponent implements OnInit {
    op: string = "";
    currentMonth = Date.now();
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient, private router: Router){}
 
   ngOnInit(): void {
     const apiUrl = 'http://localhost:3000/getincome';
-
-    this.http.get<any>(apiUrl).subscribe(
+this.http.get<any>(apiUrl).subscribe(
       (response) => {
         if (response && response.rows && response.rows.length > 0) {
           this.moneyContainer = response.rows[0].income;
@@ -89,5 +89,11 @@ export class TrackerWindowComponent implements OnInit {
 
 
     window.location.reload();
+  }
+
+  navigateToMonthly(e: any){
+    e.preventDefault();
+
+    this.router.navigate(['monthlySpendings'])
   }
 }
