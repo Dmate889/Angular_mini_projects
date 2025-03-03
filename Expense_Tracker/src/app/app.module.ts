@@ -5,16 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TrackerWindowComponent } from './components/tracker-window/tracker-window.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MonthlySpendingsComponent } from './components/monthly-spendings/monthly-spendings.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
     TrackerWindowComponent,
+    MonthlySpendingsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
